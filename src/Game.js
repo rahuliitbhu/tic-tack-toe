@@ -137,7 +137,7 @@ if(checkmove(1,2,3,sign)||checkmove(4,5,6,sign)||checkmove(7,8,9,sign)
     <div >
 
     
-     {data.opponentname?<h2><center>Game with {data.opponentname}</center></h2>:<></>}
+{data.opponentname?<h2><center>Game with {data.opponentname}</center></h2>:<></>}
        <h6><center>Your piece</center></h6>
        <h2><center>X</center></h2>
         <h1 ref={disp} ><center>Your move</center></h1>

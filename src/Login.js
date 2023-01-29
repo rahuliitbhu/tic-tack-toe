@@ -28,6 +28,7 @@ useEffect( ()=>{
             console.log(item)
             if(item.username==username)
            { const res = await firebase.auth().signInWithEmailAndPassword(item.email,password)
+            localStorage.setItem('useremail',item.email)
             console.log(res)
            }
         })

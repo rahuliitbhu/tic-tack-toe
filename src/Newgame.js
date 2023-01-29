@@ -19,11 +19,13 @@ function Newgame({user}) {
         e.preventDefault()
       //  console.log(username,password)
         try{
-            console.log(userdata)
+            
             userdata.map( async (item)=>{
                 console.log(item)
                 if(item.email==email)
                { 
+                localStorage.setItem('opponentemail',email)
+                console.log(localStorage.getItem('opponentemail'))
                 firebase.firestore().collection('usergame').add({
                 useremail:user.multiFactor.user.email,
                 opponentemail:email,
