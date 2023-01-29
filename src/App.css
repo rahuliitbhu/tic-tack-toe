@@ -1,0 +1,33 @@
+
+td{
+  width:100px;
+  height: 100px;
+ background: rgb(187, 186, 186);
+ font-size: 40px;
+ text-align: center;
+ border-radius: 10px ;
+}
+table{
+  margin: 20px auto;
+  border-radius: 10px;
+  color: white;
+}
+
+h1{
+  margin:auto ;
+  text-align: center;
+  width:200px;
+  height: 60px;
+  font-size:18px;
+  text-align: center;
+  
+  background:  #FFE79E;;
+}
+
+.red{
+  background:rgb(277, 0, 0);
+}
+
+.green{
+  background:rgb(0, 227, 0);
+}
