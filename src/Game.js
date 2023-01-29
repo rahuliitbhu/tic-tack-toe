@@ -3,7 +3,7 @@ import {useEffect, useRef,useState} from 'react'
 
 import firebase from './firebase.js'
 
-function Game() {
+function Game({user}) {
 
   const [gameresult,setGameresult]=useState(-2);
   const [email,setEmail]=useState("")
@@ -26,13 +26,13 @@ function Game() {
   useEffect( ()=>{
     const result=firebase.firestore().collection('usergame').get().then((dataRef)=>{
         const data =  dataRef.docs.map((doc)=>doc.data())
-
+        console.log(data)
        // setuserdata(data)
        const res=data[data.length-1]
        setData(res)
        
          })
-         
+     
 },[])
 
 
@@ -136,7 +136,8 @@ if(checkmove(1,2,3,sign)||checkmove(4,5,6,sign)||checkmove(7,8,9,sign)
   return (
     <div >
 
-       <h2><center>Game with {data.opponentname}</center></h2>
+    
+     {data.opponentname?<h2><center>Game with {data.opponentname}</center></h2>:<></>}
        <h6><center>Your piece</center></h6>
        <h2><center>X</center></h2>
         <h1 ref={disp} ><center>Your move</center></h1>

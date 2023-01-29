@@ -26,7 +26,7 @@ function App() {
           <BrowserRouter>
           <Switch>
           <Route exact path="/">
-        <Home />
+        <Home user={user}/>
       </Route>
           <Route path="/login">
         <Login />
@@ -36,10 +36,10 @@ function App() {
       </Route>
      
       <Route  path="/newgame">
-        <Newgame user={user} opp={opp} setOpp={setOpp} />
+        <Newgame user={user} />
       </Route>
       <Route  path="/game">
-        <Game user={user} opp={opp}  />
+        <Game user={user}  />
       </Route>
           </Switch>
           

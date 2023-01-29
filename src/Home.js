@@ -4,15 +4,15 @@ import Card from './Card.js'
 
 
 import firebase from './firebase.js'
-function Home() {
-    const [data,setData]=useState(null)
+function Home({user}) {
+    const [data,setData]=useState([])
     useEffect( ()=>{
         const result=firebase.firestore().collection('userresult').get().then((dataRef)=>{
             const data =  dataRef.docs.map((doc)=>doc.data())
     
            // setuserdata(data)
-           const res=data[data.length-1]
-           setData(res)
+           
+           setData(data)
            
              })
              
@@ -21,8 +21,14 @@ function Home() {
   return (
     <div>
         <h2>Your Games</h2>
-        
-        {data?<Card name={data.opponentname} res={data.gameresult}/>:<></>}
+     
+        {data.map((item)=>{
+
+if(item.useremail==user.multiFactor.user.email)
+return <Card name={item.opponentname} res={item.gameresult}/>
+
+})
+}
          <Link to="/newgame"> <button class="btn btn-primary"> Start a new game </button> </Link>
     
       
